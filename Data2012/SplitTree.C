@@ -9,15 +9,16 @@ void SplitTree(){
 
 
 	for(int i =0;i< 6;i++){
-		InPutFileList.push_back( Form("/gpfs01/star/scratch/fengliu/LL_Spin_2012/Output_%d.root",i+1 ) );
+		InPutFileList.push_back( Form("/gpfs01/star/pwg/fliu/LL_Spin_Correlation/2012data/BigTree/Output_%d.root",i+1 ) );
 	}
-	OutPutFileAddress = "/gpfs01/star/scratch/fengliu/LL_Spin_2012/LittleTree/";
+	OutPutFileAddress="/gpfs01/star/pwg/fliu/LL_Spin_Correlation/2012data/LittleTree/";
 
 
 
 
 	//-----------------------------------Enter input file loop-----------------------------------
 	for(int ifile=0;ifile<InPutFileList.size();ifile++){
+		std::cout<<"ifile"<<ifile<<std::endl;
 		TFile *fin=TFile::Open( InPutFileList[ifile].c_str() );
 		if(!fin){
 			std::cout<<"Can't Open the file:"<<InPutFileList[ifile]<<std::endl;
@@ -39,7 +40,7 @@ void SplitTree(){
 		for(int i_ltree = 0 ; i_ltree < N_LT;i_ltree++){
 			//The output file for the little tree 
 			std::string OutPutFile = OutPutFileAddress + Form("OutPutLittleTree_2012_OutPut_%d_%d.root",ifile+1,i_ltree);
-			TFile *fout = new TFile::Open(OutPutFile.c_str(),"RECREATE");
+			TFile *fout = TFile::Open(OutPutFile.c_str(),"RECREATE");
 			TTree *LittleTree = InTree->CloneTree(0);
 			Long64_t i_statr = i_ltree * NEntries_LT;
 			Long64_t i_end   = (i_ltree+1) * NEntries_LT ; 

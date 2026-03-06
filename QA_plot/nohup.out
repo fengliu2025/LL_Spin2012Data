@@ -1,0 +1,30 @@
+   ------------------------------------------------------------------
+  | Welcome to ROOT 6.24/06                        https://root.cern |
+  | (c) 1995-2021, The ROOT Team; conception: R. Brun, F. Rademakers |
+  | Built for linuxx8664gcc on Sep 02 2021, 14:20:23                 |
+  | From tags/v6-24-06@v6-24-06                                      |
+  | With g++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-11)                 |
+  | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q'       |
+   ------------------------------------------------------------------
+
+cling::DynamicLibraryManager::loadLibrary(): /afs/rhic.bnl.gov/star/packages/release1/SL24b/.sl73_gcc485/obj/StRoot/StarClassLibrary/StarClassLibrary.so: wrong ELF class: ELFCLASS32
+cling::DynamicLibraryManager::loadLibrary(): /afs/rhic.bnl.gov/star/packages/release1/SL24b/.sl73_gcc485/obj/StRoot/StarRoot/StarRoot.so: wrong ELF class: ELFCLASS32
+ *** Start at Date : Wed Dec 17 22:12:38 2025
+
+Processing main_QA.C...
+i_file0
+i_file100
+i_file200
+i_file300
+i_file400
+i_file500
+i_file600
+i_file700
+i_file800
+i_file900
+i_file1000
+i_file1100
+i_file1200
+
+This is the end of STAR ROOT -- Goodbye
+
