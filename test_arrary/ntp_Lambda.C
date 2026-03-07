@@ -49,7 +49,7 @@ void ntp_Lambda::Loop()
       //------------------------------------iEntry---------------------------
       for(int iEntry = 0 ; iEntry < Nentries ; iEntry++){
          fChain->GetEntry(iEntry);
-
+	 if(iEntry %100000==0) std::cout<<iEntry<<std::endl;
          h1D_Vz                   ->Fill(Vz); 
          h1D_NLambda              ->Fill(NLambda);
          for(int iLam = 0 ; iLam < NLambda; iLam++){
@@ -78,12 +78,13 @@ void ntp_Lambda::Loop()
       }
       //------------------------------------iEntry---------------------------
    
-      fin->Close();
-
+      fin->Close(); 
+      //std::cout<<"test1"<<std::endl;
    }
    //------------------------------------iFile---------------------------
-
+   //std::cout<<"test2"<<std::endl;
    TFile *fout = TFile::Open(OutPutFile.c_str(),"RECREATE");
+   //std::cout<<"test3"<<std::endl;
    h1D_Vz                   ->Write();
    h1D_NLambda              ->Write();
    h1D_p1_pt                ->Write();
@@ -105,10 +106,10 @@ void ntp_Lambda::Loop()
    h1D_pair_eta             ->Write();  
    h1D_pair_pt              ->Write(); 
    h1D_pair_mass            ->Write();
-
+   //std::cout<<"test4"<<std::endl;
    fout->Close();
-
-   delete fout;
+   //std::cout<<"test5"<<std::endl;
+   //delete fout;
 
 
 

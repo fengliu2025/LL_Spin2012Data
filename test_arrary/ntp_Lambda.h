@@ -96,8 +96,8 @@ ntp_Lambda::ntp_Lambda(TTree *tree) : fChain(0)
 
 ntp_Lambda::~ntp_Lambda()
 {
-   if (!fChain) return;
-   delete fChain->GetCurrentFile();
+   //if (!fChain) return;
+   //delete fChain->GetCurrentFile();
 }
 
 Int_t ntp_Lambda::GetEntry(Long64_t entry)
