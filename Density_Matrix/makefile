@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS =  -stdlib=libc++ -pthread -std=c++17 -m64 -I/opt/homebrew/Cellar/root/6.34.08_1/include/root
+CXXFLAGS =  -O2 -std=c++11 -pedantic -W -Wall -Wshadow -fPIC
 
 
 
