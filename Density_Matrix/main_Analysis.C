@@ -15,20 +15,20 @@ int main(int argc, char* argv[]){
 	std::vector<std::string> FullInputFiles;
 	std::vector<std::string> MixEventInputFiles;
 	std::vector<std::string> SameEventInputFiles;
-	std::string OutputFile=Form("/gpfs01/star/pwg/fliu/LL_Spin_Correlation/2012result/Density_Matrix_ME_%d.root",i_file);
+	std::string OutputFile=Form("./Density_Matrix_ME_%d.root",i_file);
 	
-	std::ifstream filelist("/gpfs01/star/pwg/fliu/LL_Spin_Correlation/Density_Matrix/Inputfilelist.txt");
 	//std::ifstream filelist("Inputfilelist.txt");
-	if (!filelist.is_open()) {
-		std::cerr <<"can't open the file" <<std::endl;
-	}
+	//if (!filelist.is_open()) {
+	//	std::cerr <<"can't open the file" <<std::endl;
+	//}
 	//std::string directory="/star/u/jjiastar/pwg/Spin/production/output/";
 	std::string line;
 	
-	while (std::getline(filelist,line)){
-		FullInputFiles.push_back(line);
-	}
-	std::cout<<FullInputFiles.size()<<std::endl;
+	//while (std::getline(filelist,line)){
+		//FullInputFiles.push_back(line);
+		FullInputFiles.push_back("/Users/feng/Documents/physics_project/LL_Spin_Correlation2012/2012Code/Output_1.root");
+	//}
+	
 	MixEventInputFiles.push_back(FullInputFiles[i_file]);
 	SameEventInputFiles.push_back(FullInputFiles[i_file]);
 
