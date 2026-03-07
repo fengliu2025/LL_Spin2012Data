@@ -234,7 +234,7 @@ void ntp_Lambda_Analyzer::Analysis_SameEvent(){
 				//cut on the pair_DCA 
 				if( SameEvent_Reader->pair_DCAdaughters[i_lambda] > 1.) {isGoodLambda=0;}
 				//cut on the decay length
-				if( SameEvent_Reader->pair_decayL[i_lambda] < 2.   ){isGoodLambda=0;}
+				if( SameEvent_Reader->pair_decayL[i_lambda] < 2. || SameEvent_Reader->pair_decayL[i_lambda] > 25.  ){isGoodLambda=0;}
 				//cut on the cos_theta
 				if( TMath::Cos(SameEvent_Reader->pair_theta[i_lambda]) < 0.996 ){isGoodLambda=0;}
 				//cut on DCA of L to PV
@@ -315,6 +315,22 @@ void ntp_Lambda_Analyzer::FindCounterparts(std::vector<TLorentzVector> *Lambda_c
 			//cut on the tracks 
 			if( TMath::Abs(MixEvent_Reader->p1_eta[0]) > Track_Eta_Cut || TMath::Abs(MixEvent_Reader->p2_eta[0]) > Track_Eta_Cut ) continue;
 			if( MixEvent_Reader->p1_pt[0] < Track_Pt_LowCut || MixEvent_Reader->p2_pt[0] < Track_Pt_LowCut ) continue;
+
+
+			//cut on the tracks dca
+			if( MixEvent_Reader->p1_dca[0] < 0.1 || MixEvent_Reader->p2_dca[0] < 0.3 ) continue;
+
+			//cut on the pair_DCA 
+			if( MixEvent_Reader->pair_DCAdaughters[0] > 1.) continue;
+			//cut on the decay length
+			if( MixEvent_Reader->pair_decayL[0] < 2. || MixEvent_Reader->pair_decayL[0] > 25.  ) continue;
+			//cut on the cos_theta
+			if( TMath::Cos(MixEvent_Reader->pair_theta[0]) < 0.996 ) continue;
+			//cut on DCA of L to PV
+			if ( ( TMath::Sin(MixEvent_Reader->pair_theta[0]) * MixEvent_Reader->pair_decayL[0] ) > 1.0  )continue;
+
+
+
 			//cut on the lambda candadates 
 			TLorentzVector v;
 			v.SetPtEtaPhiM(MixEvent_Reader->pair_pt[0],MixEvent_Reader->pair_eta[0],MixEvent_Reader->pair_phi[0],MixEvent_Reader->pair_mass[0]);
@@ -468,7 +484,7 @@ void ntp_Lambda_Analyzer::Analysis_MixEvent(){
 				//cut on the pair_DCA 
 				if( SameEvent_Reader->pair_DCAdaughters[i_lambda] > 1.) {isGoodLambda=0;}
 				//cut on the decay length
-				if( SameEvent_Reader->pair_decayL[i_lambda] < 2.   ){isGoodLambda=0;}
+				if( SameEvent_Reader->pair_decayL[i_lambda] < 2. || SameEvent_Reader->pair_decayL[i_lambda] > 25.  ){isGoodLambda=0;}
 				//cut on the cos_theta
 				if( TMath::Cos(SameEvent_Reader->pair_theta[i_lambda]) < 0.996 ){isGoodLambda=0;}
 				//cut on DCA of L to PV
