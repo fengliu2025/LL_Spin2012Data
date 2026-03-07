@@ -12,7 +12,7 @@ void main_Analysis_SE(){
 	//std::string OutputFile=Form("/gpfs/mnt/gpfs01/star/pwg/fliu/LL_Spin_Correlation/2012result/Density_Matrix_SE_%2f.root",1.0);
 	
 	//std::ifstream filelist("/gpfs01/star/pwg/fliu/LL_Spin_Correlation/Density_Matrix/Inputfilelist.txt");
-	std::string OutputFile=Form("Density_Matrix_SE_%2f_LittleTree.root",1.0);
+	std::string OutputFile=Form("Density_Matrix_SE_%2.f_LittleTree_CutDCA_LPV.root",1.0);
         //std::ifstream filelist("/gpfs01/star/pwg/fliu/LL_Spin_Correlation/Density_Matrix/Inputfilelist.txt");
         std::ifstream filelist("/gpfs/mnt/gpfs01/star/pwg/fliu/LL_Spin_Correlation/2012data/LittleTree/FileList.txt");
 	if (!filelist.is_open()) {
