@@ -237,7 +237,8 @@ void ntp_Lambda_Analyzer::Analysis_SameEvent(){
 				if( SameEvent_Reader->pair_decayL[i_lambda] < 2.   ){isGoodLambda=0;}
 				//cut on the cos_theta
 				if( TMath::Cos(SameEvent_Reader->pair_theta[i_lambda]) < 0.996 ){isGoodLambda=0;}
-				
+				//cut on DCA of L to PV
+				if ( ( TMath::Sin(SameEvent_Reader->pair_theta[i_lambda]) * SameEvent_Reader->pair_decayL[i_lambda] ) > 1.0  ){isGoodLambda=0;}
 				TLorentzVector v;
 				v.SetPtEtaPhiM(SameEvent_Reader->pair_pt[i_lambda],SameEvent_Reader->pair_eta[i_lambda],SameEvent_Reader->pair_phi[i_lambda],SameEvent_Reader->pair_mass[i_lambda]);
 				//cut on the lambda_Candidates 
@@ -462,7 +463,18 @@ void ntp_Lambda_Analyzer::Analysis_MixEvent(){
 				if( SameEvent_Reader->pair_charge[i_lambda] == 1 ){ isGoodLambda =0; }
 				if( SameEvent_Reader->p1_pt[i_lambda] < Track_Pt_LowCut || SameEvent_Reader->p2_pt[i_lambda] < Track_Pt_LowCut ) {isGoodLambda=0;}
 				if( TMath::Abs(SameEvent_Reader->p1_eta[i_lambda]) > Track_Eta_Cut || TMath::Abs(SameEvent_Reader->p2_eta[i_lambda]) > Track_Eta_Cut  ) {isGoodLambda=0;}
-				
+				if( SameEvent_Reader->p1_dca[i_lambda] < 0.1 || SameEvent_Reader->p2_dca[i_lambda] < 0.3 ) {isGoodLambda=0;}
+
+				//cut on the pair_DCA 
+				if( SameEvent_Reader->pair_DCAdaughters[i_lambda] > 1.) {isGoodLambda=0;}
+				//cut on the decay length
+				if( SameEvent_Reader->pair_decayL[i_lambda] < 2.   ){isGoodLambda=0;}
+				//cut on the cos_theta
+				if( TMath::Cos(SameEvent_Reader->pair_theta[i_lambda]) < 0.996 ){isGoodLambda=0;}
+				//cut on DCA of L to PV
+				if ( ( TMath::Sin(SameEvent_Reader->pair_theta[i_lambda]) * SameEvent_Reader->pair_decayL[i_lambda] ) > 1.0  ){isGoodLambda=0;}
+
+
 				TLorentzVector v;
 				v.SetPtEtaPhiM(SameEvent_Reader->pair_pt[i_lambda],SameEvent_Reader->pair_eta[i_lambda],SameEvent_Reader->pair_phi[i_lambda],SameEvent_Reader->pair_mass[i_lambda]);
 				//cut on the lambda_Candidates 
