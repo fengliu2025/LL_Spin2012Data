@@ -16,6 +16,9 @@
 
 class ntp_Lambda {
 public :
+   std::vector<std::string> InPutFileList;
+   std::string     OutPutFile;
+
    TTree          *fChain;   //!pointer to the analyzed TTree or TChain
    Int_t           fCurrent; //!current Tree number in a TChain
 
@@ -97,19 +100,9 @@ public :
 #endif
 
 #ifdef ntp_Lambda_cxx
-ntp_Lambda::ntp_Lambda(TTree *tree) : fChain(0) 
+ntp_Lambda::ntp_Lambda() : fChain(0) 
 {
-// if parameter tree is not specified (or zero), connect the file
-// used to generate this class and read the Tree.
-   if (tree == 0) {
-      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("output_1.root");
-      if (!f || !f->IsOpen()) {
-         f = new TFile("output_1.root");
-      }
-      f->GetObject("ntp_Lambda",tree);
 
-   }
-   Init(tree);
 }
 
 ntp_Lambda::~ntp_Lambda()

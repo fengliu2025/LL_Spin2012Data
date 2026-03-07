@@ -16,6 +16,8 @@
 
 class ntp_Lambda {
 public :
+   std::vector<std::string> InPutFileList;
+   std::string     OutPutFile;
    TTree          *fChain;   //!pointer to the analyzed TTree or TChain
    Int_t           fCurrent; //!current Tree number in a TChain
 
