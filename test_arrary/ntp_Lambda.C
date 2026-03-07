@@ -41,7 +41,7 @@ void ntp_Lambda::Loop()
       TTree *tree = (TTree *)fin->Get("ntp_Lambda");
       if(!tree){
          std::cout<<"Can not get the tree"<<std::endl;
-         continue
+         continue;
       }
       Init(tree);
 
