@@ -86,7 +86,7 @@ public :
    TBranch        *b_pair_pt;   //!
    TBranch        *b_pair_mass;   //!
 
-   ntp_Lambda(TTree *tree=0);
+   ntp_Lambda();
    virtual ~ntp_Lambda();
    virtual Int_t    Cut(Long64_t entry);
    virtual Int_t    GetEntry(Long64_t entry);
@@ -107,8 +107,8 @@ ntp_Lambda::ntp_Lambda() : fChain(0)
 
 ntp_Lambda::~ntp_Lambda()
 {
-   if (!fChain) return;
-   delete fChain->GetCurrentFile();
+   //if (!fChain) return;
+   //delete fChain->GetCurrentFile();
 }
 
 Int_t ntp_Lambda::GetEntry(Long64_t entry)
