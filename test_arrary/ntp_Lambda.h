@@ -91,17 +91,7 @@ public :
 #ifdef ntp_Lambda_cxx
 ntp_Lambda::ntp_Lambda(TTree *tree) : fChain(0) 
 {
-// if parameter tree is not specified (or zero), connect the file
-// used to generate this class and read the Tree.
-   if (tree == 0) {
-      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("Output_1.root");
-      if (!f || !f->IsOpen()) {
-         f = new TFile("Output_1.root");
-      }
-      f->GetObject("ntp_Lambda",tree);
 
-   }
-   Init(tree);
 }
 
 ntp_Lambda::~ntp_Lambda()
