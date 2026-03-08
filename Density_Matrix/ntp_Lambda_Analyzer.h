@@ -376,7 +376,7 @@ int ntp_Lambda_Analyzer::Analyze_MEPair(int i_lambda,int j_lambda,int i_file){
 
 		
 
-		Pair_Type = Pair_Type_Classifier(0,1);
+		Pair_Type = Pair_Type_Classifier(i_lambda,j_lambda);
 
 		if(Pair_Type == 1){
 			id_Lambda1 = i_lambda;id_Lambda2 = j_lambda;
